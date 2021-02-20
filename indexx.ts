@@ -1,1 +1,3 @@
-console.log("Hello World")
+export{}
+let mes = 'Hello?'
+console.log(mes);

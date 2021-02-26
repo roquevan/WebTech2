@@ -68,14 +68,11 @@ export default defineComponent({
     restart() {
       this.squares = Array(9).fill(null)
       this.stepNumber = 0
-      // removed this line as it is assigning to itself
-      // this.currentPlayer = this.currentPlayer
       this.winner = null
     },
 
     click (i) {
       if (this.squares[i] || this.winner) return
-      //this.$set(this.squares, i, this.currentPlayer)
       this.squares[i] = this.currentPlayer;
       if (!this.hasWinner()) {
         this.stepNumber++

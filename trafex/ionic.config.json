@@ -1,7 +1,0 @@
-{
-  "name": "trafex",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "vue"
-}

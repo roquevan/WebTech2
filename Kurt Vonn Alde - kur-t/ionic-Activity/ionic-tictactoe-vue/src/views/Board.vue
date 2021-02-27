@@ -16,7 +16,6 @@
 <script lang="ts">
 import { defineComponent } from "vue"
 import Square from "./Square.vue"
-
 export default defineComponent({
   name: "Board",
   props: {
@@ -39,7 +38,7 @@ export default defineComponent({
 
 <style scoped>
 .board {
-  border: 1rem solid #999;
+  border: 1rem solid #c4c4c4;
   box-shadow: 2.5px 5px 25px #0004, 0 1px 6px #0006;
   border-radius: 0.5rem;
   width: 65vmin;

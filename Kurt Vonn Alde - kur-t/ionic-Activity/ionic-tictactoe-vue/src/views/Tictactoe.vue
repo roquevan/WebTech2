@@ -12,7 +12,6 @@
 import { defineComponent } from "vue"
 import { IonContent, IonPage } from '@ionic/vue';
 import Game from "./Game.vue"
-
 export default defineComponent({
   name: "Home",
   components: {

@@ -3,15 +3,13 @@
     class="square"
     :class="[value, { winner: winner }]"
     :disabled="disabled"
-    @click="click"
-  >
+    @click="click">
     {{ value }}
   </button>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue"
-
 export default defineComponent({
   name: 'Square',
   props: {
@@ -29,10 +27,10 @@ export default defineComponent({
 
 <style scoped>
 .square {
- background: #ffff;
+  background: #fff9;
   background-blend-mode: exclusion;
   background-image: var(--noise-pattern);
-  border: 1px solid #000;
+  border: 1px solid #fffc;
   font-size: 15vmin;
   font-weight: bold;
   line-height: 34px;
@@ -42,6 +40,7 @@ export default defineComponent({
   text-shadow: -1px -1px 1px #000b, -1px 1px 1px #000b, 1px -1px 1px #000b, 1px 1px 1px #000b;
   transition: all .25s ease;
   outline: none;
+  border: 1px solid #000;
 }
 .square.winner {
   background: #8885;
@@ -55,7 +54,8 @@ export default defineComponent({
   box-shadow: inset 0 2px 50px #0008;
 }
 .square.X {
-  color: #ff5722;
+     color: #ff5722;
+      border: 1px solid #000;
 }
 .square.O {
   color: #ffeb3b;

@@ -1,6 +1,6 @@
 {
   "appId": "io.ionic.starter",
-  "appName": "IonicSample",
+  "appName": "ionic-vue-tictactoe",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "dist",

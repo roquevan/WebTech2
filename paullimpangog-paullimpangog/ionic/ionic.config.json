@@ -1,5 +1,5 @@
 {
-  "name": "IonicSample",
+  "name": "ionic-vue-tictactoe",
   "integrations": {
     "capacitor": {}
   },

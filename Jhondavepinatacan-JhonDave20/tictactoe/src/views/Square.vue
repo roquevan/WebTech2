@@ -41,7 +41,6 @@ export default defineComponent({
   text-shadow: -1px -1px 1px #000b, -1px 1px 1px #000b, 1px -1px 1px #000b, 1px 1px 1px #000b;
   transition: all .25s ease;
   outline: none;
-  border: 1px solid #000;
 }
 
 .square.winner {
@@ -59,11 +58,11 @@ export default defineComponent({
 }
 
 .square.X {
-     color: #ff5722;
-      border: 1px solid #000;
+  color: #000000;
 }
 
 .square.O {
-  color: #ffeb3b;
+  color: #FFFFFF
+  ;
 }
 </style>

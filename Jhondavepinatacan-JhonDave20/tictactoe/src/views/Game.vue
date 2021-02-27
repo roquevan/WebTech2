@@ -5,23 +5,23 @@
         <div class="game">
           <div class="game-area">
             <div class="game-title">
-              <h1>Activity 2</h1>
+              <h1>TICTACTOE</h1>
             </div>
 
             <Board :squares="squares" :winner="winner" @click="click" />
 
             <div class="game-info">
-              <p v-if="stepNumber === 0">Current Player: <b class="">{{currentPlayer}}</b></p>
+              <p v-if="stepNumber === 0">Current Player:  <b class="">{{currentPlayer}}</b></p>
               <p v-else-if="!!winner">
-                Winner 
-                <b :class="currentPlayer">{{currentPlayer}}</b>
-                <button @click="restart">Restart</button>
+                Winner
+                <b :class="currentPlayer">{{currentPlayer}}</b>!&nbsp;
+                <button @click="restart"> Restart</button>
               </p>
               <p v-else-if="stepNumber > 8">
-                Play Again! 
+                Play Again!
                 <button @click="restart">Restart</button>
               </p>
-              <p v-else>Current Player:<b class=""> {{currentPlayer}}</b></p>
+              <p v-else>Current Player:<b class="">{{currentPlayer}}</b></p>
             </div>
           </div>
         </div>
@@ -76,13 +76,22 @@ export default defineComponent({
       this.winner = null
     },
 
-    click (i) {
+      click (i) {
       if (this.squares[i] || this.winner) return
       // this.$set(this.squares, i, this.currentPlayer)
       this.squares[i] = this.currentPlayer;
       if (!this.hasWinner()) {
-        this.stepNumber++
-        this.currentPlayer = this.currentPlayer === 'X' ? 'O' : 'X'
+        
+        if(this.stepNumber===1||this.stepNumber===3||this.stepNumber===5||this.stepNumber===7||this.stepNumber===9)
+        {
+          this.currentPlayer = this.currentPlayer === 'X' ? 'O' : 'O'
+          this.stepNumber++
+        }
+        else 
+        {
+          this.currentPlayer = this.currentPlayer === 'X' ? 'X' : 'X'
+          this.stepNumber++
+      }
       }
     }
   }

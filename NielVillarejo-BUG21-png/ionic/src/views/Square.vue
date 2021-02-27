@@ -3,7 +3,7 @@
     class="square"
     :class="[value, { winner: winner }]"
     :disabled="disabled"
-    @click="click">
+    @squareclick="click">
     {{ value }}
   </button>
 </template>

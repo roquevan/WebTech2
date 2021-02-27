@@ -5,7 +5,7 @@
         <div class="game">
           <div class="game-area">
             <div class="game-title">
-              <h1>Activity 2</h1>
+              <h1>PINAKA FINAL!</h1>
             </div>
 
             <Board :squares="squares" :winner="winner" @click="click" />
@@ -80,10 +80,21 @@ export default defineComponent({
       if (this.squares[i] || this.winner) return
       // this.$set(this.squares, i, this.currentPlayer)
       this.squares[i] = this.currentPlayer;
-      if (!this.hasWinner()) {
-        this.stepNumber++
-        this.currentPlayer = this.currentPlayer === 'X' ? 'O' : 'X'
-      }
+          if(this.stepNumber===0||this.stepNumber===2||this.stepNumber===4||this.stepNumber===6||this.stepNumber===8)
+        {
+           if (this.currentPlayer === 'X')
+            this.currentPlayer = 'X' 
+            else
+            this.currentPlayer = 'X'
+          this.stepNumber++
+        }
+        else 
+        {
+         if( this.currentPlayer === 'X' )
+         this.currentPlayer = 'O' 
+         this.currentPlayer = 'O'
+          this.stepNumber++
+        }
     }
   }
 })
@@ -91,8 +102,7 @@ export default defineComponent({
 
 <style scoped>
 .game {
-  background-color: rgba(var(--gradient-color-base));
-  background-image: repeating-linear-gradient(45deg, #0000 5px, rgba(var(--gradient-color-1), .2) 5px, rgba(var(--gradient-color-1), .2) 10px, rgba(var(--gradient-color-2), 0) 10px, rgba(var(--gradient-color-2), 0) 35px, rgba(var(--gradient-color-2), .4) 35px, rgba(var(--gradient-color-2), .4) 40px,rgba(var(--gradient-color-1), .2) 40px, rgba(var(--gradient-color-1), .2) 50px, rgba(10, 36, 45, 0) 50px, rgba(var(--gradient-color-1), 0) 60px,rgba(var(--gradient-color-2), .4) 60px, rgba(var(--gradient-color-2), .4) 70px, rgba(var(--gradient-color-3), .3) 70px, rgba(var(--gradient-color-3), .3) 80px,rgba(var(--gradient-color-3), 0) 80px, rgba(var(--gradient-color-3), 0) 90px, rgba(var(--gradient-color-2), .4) 90px, rgba(var(--gradient-color-2), .4) 110px,rgba(var(--gradient-color-2), 0) 110px, rgba(var(--gradient-color-2), 0) 120px, rgba(var(--gradient-color-1), .2) 120px, rgba(var(--gradient-color-1), .2) 140px), repeating-linear-gradient(135deg, #0000 5px, rgba(var(--gradient-color-1), .2) 5px, rgba(var(--gradient-color-1), .2) 10px,rgba(var(--gradient-color-2), 0) 10px, rgba(var(--gradient-color-2), 0) 35px, rgba(var(--gradient-color-2), .4) 35px, rgba(var(--gradient-color-2), .4) 40px,rgba(var(--gradient-color-1), .2) 40px, rgba(var(--gradient-color-1), .2) 50px, rgba(var(--gradient-color-1), 0) 50px, rgba(var(--gradient-color-1), 0) 60px,rgba(var(--gradient-color-2), .4) 60px, rgba(var(--gradient-color-2), .4) 70px, rgba(var(--gradient-color-3), .3) 70px, rgba(var(--gradient-color-3), .3) 80px,rgba(var(--gradient-color-3), 0) 80px, rgba(var(--gradient-color-3), 0) 90px, rgba(var(--gradient-color-2), .4) 90px, rgba(var(--gradient-color-2), .4) 110px,rgba(var(--gradient-color-2), 0) 110px, rgba(var(--gradient-color-2), 0) 140px, rgba(var(--gradient-color-1), .2) 140px, rgba(var(--gradient-color-1), .2) 160px);
+  background-color: #ff5722;
   height: 100vh;
   display: flex;
   justify-content: center;

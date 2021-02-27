@@ -1,33 +1,30 @@
 <template>
-  <ion-page>
-    <ion-content :fullscreen="true">
-      <div id="container">
-        <div class="game">
-          <div class="game-area">
-            <div class="game-title">
-              <h1>Activity 2</h1>
-            </div>
-
-            <Board :squares="squares" :winner="winner" @click="click" />
-
-            <div class="game-info">
-              <p v-if="stepNumber === 0">Current Player: <b class="">{{currentPlayer}}</b></p>
-              <p v-else-if="!!winner">
-                Winner 
-                <b :class="currentPlayer">{{currentPlayer}}</b>
-                <button @click="restart">Restart</button>
-              </p>
-              <p v-else-if="stepNumber > 8">
-                Play Again! 
-                <button @click="restart">Restart</button>
-              </p>
-              <p v-else>Current Player:<b class=""> {{currentPlayer}}</b></p>
-            </div>
-          </div>
-        </div>
+  <div class="game">
+    <div class="game-area">
+      <div class="game-title">
+        <h1>Activity 2</h1>
       </div>
-    </ion-content>
-  </ion-page>
+
+      <Board :squares="squares" :winner="winner" @click="click" />
+
+      <div class="game-info">
+        <p v-if="stepNumber === 0">Current Player: <b class="">{{currentPlayer}}</b></p>
+        <p v-else-if="!!winner">
+          Winner
+          <b :class="currentPlayer">{{currentPlayer}}</b>!&nbsp;
+          <button @click="restart">Restart</button>
+        </p>
+        <p v-else-if="stepNumber > 8">
+          Play Again!
+          <button @click="restart">Restart</button>
+        </p>
+        <p v-else>
+          Current Player:
+          <b class="">{{currentPlayer}}</b>!
+        </p>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
@@ -39,7 +36,7 @@ export default defineComponent({
     return {
       squares: Array(9).fill(null),
       stepNumber: 0,
-      currentPlayer: "X",
+      currentPlayer: 'X',
       winner: null,
     }
   },
@@ -66,17 +63,25 @@ export default defineComponent({
     restart() {
       this.squares = Array(9).fill(null)
       this.stepNumber = 0
-      // unnecessary reassign
+      // removed this line as it is assigning to itself
       // this.currentPlayer = this.currentPlayer
       this.winner = null
     },
     click (i) {
       if (this.squares[i] || this.winner) return
-      // this.$set(this.squares, i, this.currentPlayer)
+      //this.$set(this.squares, i, this.currentPlayer)
       this.squares[i] = this.currentPlayer;
       if (!this.hasWinner()) {
-        this.stepNumber++
-        this.currentPlayer = this.currentPlayer === 'X' ? 'O' : 'X'
+        if(this.stepNumber===1||this.stepNumber===3||this.stepNumber===5||this.stepNumber===7||this.stepNumber===9)
+        {
+          this.currentPlayer = this.currentPlayer === 'X' ? 'O' : 'O'
+          this.stepNumber++
+        }
+        else 
+        {
+          this.currentPlayer = this.currentPlayer === 'X' ? 'X' : 'X'
+          this.stepNumber++
+        }
       }
     }
   }
@@ -85,8 +90,6 @@ export default defineComponent({
 
 <style scoped>
 .game {
-  background-color: rgba(var(--gradient-color-base));
-  background-image: repeating-linear-gradient(45deg, #0000 5px, rgba(var(--gradient-color-1), .2) 5px, rgba(var(--gradient-color-1), .2) 10px, rgba(var(--gradient-color-2), 0) 10px, rgba(var(--gradient-color-2), 0) 35px, rgba(var(--gradient-color-2), .4) 35px, rgba(var(--gradient-color-2), .4) 40px,rgba(var(--gradient-color-1), .2) 40px, rgba(var(--gradient-color-1), .2) 50px, rgba(10, 36, 45, 0) 50px, rgba(var(--gradient-color-1), 0) 60px,rgba(var(--gradient-color-2), .4) 60px, rgba(var(--gradient-color-2), .4) 70px, rgba(var(--gradient-color-3), .3) 70px, rgba(var(--gradient-color-3), .3) 80px,rgba(var(--gradient-color-3), 0) 80px, rgba(var(--gradient-color-3), 0) 90px, rgba(var(--gradient-color-2), .4) 90px, rgba(var(--gradient-color-2), .4) 110px,rgba(var(--gradient-color-2), 0) 110px, rgba(var(--gradient-color-2), 0) 120px, rgba(var(--gradient-color-1), .2) 120px, rgba(var(--gradient-color-1), .2) 140px), repeating-linear-gradient(135deg, #0000 5px, rgba(var(--gradient-color-1), .2) 5px, rgba(var(--gradient-color-1), .2) 10px,rgba(var(--gradient-color-2), 0) 10px, rgba(var(--gradient-color-2), 0) 35px, rgba(var(--gradient-color-2), .4) 35px, rgba(var(--gradient-color-2), .4) 40px,rgba(var(--gradient-color-1), .2) 40px, rgba(var(--gradient-color-1), .2) 50px, rgba(var(--gradient-color-1), 0) 50px, rgba(var(--gradient-color-1), 0) 60px,rgba(var(--gradient-color-2), .4) 60px, rgba(var(--gradient-color-2), .4) 70px, rgba(var(--gradient-color-3), .3) 70px, rgba(var(--gradient-color-3), .3) 80px,rgba(var(--gradient-color-3), 0) 80px, rgba(var(--gradient-color-3), 0) 90px, rgba(var(--gradient-color-2), .4) 90px, rgba(var(--gradient-color-2), .4) 110px,rgba(var(--gradient-color-2), 0) 110px, rgba(var(--gradient-color-2), 0) 140px, rgba(var(--gradient-color-1), .2) 140px, rgba(var(--gradient-color-1), .2) 160px);
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -168,4 +171,4 @@ export default defineComponent({
 .game-info button:active {
   background: #1119;
 }
-</style>
+</style> 

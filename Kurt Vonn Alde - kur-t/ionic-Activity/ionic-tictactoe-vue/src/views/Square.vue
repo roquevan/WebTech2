@@ -19,7 +19,7 @@ export default defineComponent({
   },
   methods: {
     click () {
-      this.$emit('click')
+      this.$emit('squareclick')
     }
   }
 })

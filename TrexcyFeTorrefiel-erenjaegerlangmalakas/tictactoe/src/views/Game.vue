@@ -76,24 +76,15 @@ export default defineComponent({
       this.winner = null
     },
 
-    click (i) {
+   click (i) {
       if (this.squares[i] || this.winner) return
       // this.$set(this.squares, i, this.currentPlayer)
       this.squares[i] = this.currentPlayer;
+      this.stepNumber++
       if (!this.hasWinner()) {
-        
-        if(this.stepNumber===1||this.stepNumber===3||this.stepNumber===5||this.stepNumber===7||this.stepNumber===9)
-        {
-          this.currentPlayer = this.currentPlayer === 'X' ? 'O' : 'O'
-          this.stepNumber++
-        }
-        else 
-        {
-          this.currentPlayer = this.currentPlayer === 'X' ? 'X' : 'X'
-          this.stepNumber++
-        }
-          
+        this.currentPlayer = this.stepNumber%2 ?'X':'O'
       }
+
     }
   }
 })

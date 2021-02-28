@@ -80,9 +80,9 @@ export default defineComponent({
       if (this.squares[i] || this.winner) return
       // this.$set(this.squares, i, this.currentPlayer)
       this.squares[i] = this.currentPlayer;
+      this.stepNumber++
       if (!this.hasWinner()) {
-        this.stepNumber++
-        this.currentPlayer = this.currentPlayer === 'X' ? 'O' : 'X'
+        this.currentPlayer = this.stepNumber%2 ?'X':'O'
       }
     }
   }

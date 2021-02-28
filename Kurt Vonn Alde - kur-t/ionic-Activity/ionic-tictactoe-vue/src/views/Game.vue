@@ -5,7 +5,7 @@
         <h1>Activity 2</h1>
       </div>
 
-      <Board :squares="squares" :winner="winner" @squareClick="click" />
+      <Board :squares="squares" :winner="winner" @click="click" />
 
       <div class="game-info">
         <p v-if="stepNumber === 0">Current Player: <b class="">{{currentPlayer}}</b></p>
@@ -73,7 +73,7 @@ export default defineComponent({
       this.squares[i] = this.currentPlayer;
       if (!this.hasWinner()) {
         this.stepNumber++
-        this.currentPlayer = this.currentPlayer === 'X' ? 'O' : 'X'
+        this.currentPlayer = this.stepNumber%2 ? 'X' : 'O'
       }
     }
   }

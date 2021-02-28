@@ -7,7 +7,7 @@
         :value="squares[indexByRow(i, row)]"
         :disabled="!!winner"
         :winner="!!winner && winner.includes(indexByRow(i, row))"
-        @squareClick="click(i, row)"
+        @click="click(i, row)"
       />
     </div>
   </div>
@@ -30,7 +30,7 @@ export default defineComponent({
       return row * max + index - (max + 1)
     },
     click(index, row) {
-      this.$emit("squareClick", this.indexByRow(index, row))
+      this.$emit("click", this.indexByRow(index, row))
     },
   },
 })
